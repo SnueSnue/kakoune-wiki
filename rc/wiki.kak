@@ -24,7 +24,7 @@ define-command wiki -params 1  \
 define-command wiki_enable %{
     add-highlighter buffer/wiki group
     add-highlighter buffer/wiki/tag regex '\B@\S+' 0:link
-    add-highlighter buffer/wiki/link regex '\[([^\]])+\]' 0:link
+    add-highlighter buffer/wiki/link regex '\[[^\]]+\]' 0:link
     hook buffer InsertKey '<ret>' -group wiki %{
         evaluate-commands %{ try %{
             execute-keys -draft %{
